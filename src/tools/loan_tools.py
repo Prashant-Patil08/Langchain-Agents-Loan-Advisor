@@ -45,17 +45,23 @@ def compare_loan_options(plans_json: str) -> str:
 
 
 @tool
-
-def estimate_max_safe_loan_amount(monthly_income: float, existing_emi: float, annual_rate: float, tenure_years: int) -> str:
-    """Estimate the maximum safe loan amount for the user using monthly income, current EMI, rate, and tenure."""
-    result = max_affordable_loan(
-        monthly_income=monthly_income,
-        existing_emi=existing_emi,
-        annual_rate=annual_rate,
-        tenure_years=tenure_years,
-        foir_limit=settings.default_foir_limit,
-    )
-    return json.dumps(result, indent=2)
+def estimate_max_safe_loan_amount(
+    monthly_income: float,
+    existing_emi: float,
+    annual_rate: float,
+    tenure_years: int,
+) -> str:
+    """Estimate the maximum safe loan principal the borrower can afford."""
+    try:
+        result = max_affordable_loan(
+            monthly_income=monthly_income,
+            existing_emi=existing_emi,
+            annual_rate=annual_rate,
+            tenure_years=tenure_years,
+        )
+        return json.dumps(result, indent=2)
+    except ValueError as e:
+        return f"Input error: {str(e)}. Ask the user for valid monthly income before estimating the safe loan amount."
 
 
 @tool

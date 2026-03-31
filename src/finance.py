@@ -81,7 +81,10 @@ def max_affordable_loan(
     foir_limit: float,
 ) -> dict[str, Any]:
     if monthly_income <= 0:
-        raise ValueError("monthly_income must be greater than 0")
+        return {
+            "error": "monthly_income must be greater than 0",
+            "status": "invalid_input"
+        }
     if existing_emi < 0:
         raise ValueError("existing_emi cannot be negative")
 
