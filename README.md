@@ -1,5 +1,29 @@
 # Loan Advisor Agent Learning Lab
 
+## Overview
+A practical LangChain agent learning project with Streamlit UI.
+
+## Features
+- Tool calling
+- Agent loop
+- Structured output
+- Thread memory
+- Middleware
+- Gemini model integration
+
+## Concepts Covered
+- Loop understanding
+- Structured output
+- Context engineering
+- Memory and thread state
+- Middleware
+
+## Run
+streamlit run app.py
+
+## Screenshot
+![Loan-Advisor-Agent](D:\Langchain-Agents\assets\image.png)
+
 A clean, VS Code friendly LangChain learning project that teaches the most important agent concepts in one place:
 
 - Agent loop
